@@ -47,7 +47,7 @@
   .bio { margin-top: 10px; font-size: 14px; color: var(--sub); }
 
   /* リンク */
-  .links { margin-top: 28px; display: grid; gap: 12px; }
+  .links { margin-top: 14px; display: grid; gap: 12px; }
   .link {
     display: grid; grid-template-columns: 44px 1fr 16px; align-items: center; column-gap: 14px;
     min-height: 68px; padding: 12px 16px; border: 1px solid var(--line); border-radius: 14px;
@@ -70,6 +70,7 @@
 
   /* 見出し */
   .sec { margin-top: 36px; display: flex; align-items: center; gap: 10px; }
+  .sec.first { margin-top: 28px; }
   .sec h2 { font-size: 13px; font-weight: 900; letter-spacing: .2em; }
   .sec::after { content: ""; flex: 1; height: 1px; background: var(--line); }
   .sec .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); }
@@ -98,10 +99,11 @@
     <p class="bio">競馬予想・レース回顧</p>
   </header>
 
+  <div class="sec first"><span class="dot"></span><h2>NOTE / X</h2></div>
   <nav class="links">
     <a class="link" href="https://note.com/reji_uma" target="_blank" rel="noopener">
       <span class="icon"><svg viewBox="0 0 24 24"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></svg></span>
-      <span class="text"><span class="title block">note</span><span class="desc block">重賞の見解と印</span></span>
+      <span class="text"><span class="title block">note</span><span class="desc block">自信レースの印と見解</span></span>
       <svg class="chev" viewBox="0 0 16 16"><path d="M6 3l5 5-5 5"/></svg>
     </a>
     <a class="link" href="https://x.com/Tsubuyaiteku" target="_blank" rel="noopener">
@@ -109,19 +111,23 @@
       <span class="text"><span class="title block">X</span><span class="desc block">@Tsubuyaiteku</span></span>
       <svg class="chev" viewBox="0 0 16 16"><path d="M6 3l5 5-5 5"/></svg>
     </a>
+  </nav>
+
+  <div class="sec"><span class="dot"></span><h2>UMAMI</h2></div>
+  <nav class="links">
     <a class="link" href="https://umami-lab-support.github.io/" target="_blank" rel="noopener">
       <span class="icon"><svg viewBox="0 0 24 24"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg></span>
-      <span class="text"><span class="title block">UMAMI</span><span class="desc block">けいばを、もっとたのしむ。</span></span>
+      <span class="text"><span class="title block">UMAMI</span><span class="desc block">競馬分析ツール</span></span>
       <svg class="chev" viewBox="0 0 16 16"><path d="M6 3l5 5-5 5"/></svg>
     </a>
     <a class="link" href="https://note.com/umami_info/all" target="_blank" rel="noopener">
       <span class="icon"><svg viewBox="0 0 24 24"><path d="M3 8a2 2 0 0 0 2-2h14a2 2 0 0 0 2 2v2a2 2 0 0 0 0 4v2a2 2 0 0 0-2 2H5a2 2 0 0 0-2-2v-2a2 2 0 0 0 0-4z"/><path d="M14 6v12" stroke-dasharray="2 2.4"/></svg></span>
-      <span class="text"><span class="title block">UMAMI 1日券</span><span class="desc block">土日それぞれの合い言葉</span></span>
+      <span class="text"><span class="title block">1日券</span><span class="desc block">土日それぞれの合い言葉</span></span>
       <svg class="chev" viewBox="0 0 16 16"><path d="M6 3l5 5-5 5"/></svg>
     </a>
     <a class="link" href="https://note.com/umami_info/membership" target="_blank" rel="noopener">
       <span class="icon"><svg viewBox="0 0 24 24"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1L3.2 9.5l6.1-.9z"/></svg></span>
-      <span class="text"><span class="title block">UMAMI メンバーシップ</span><span class="desc block">すべての開催日が見られる</span></span>
+      <span class="text"><span class="title block">メンバーシップ</span><span class="desc block">すべての開催日が見られる</span></span>
       <svg class="chev" viewBox="0 0 16 16"><path d="M6 3l5 5-5 5"/></svg>
     </a>
   </nav>
