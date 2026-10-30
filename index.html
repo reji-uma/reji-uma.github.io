@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>REJI｜れーじきゅん</title>
+<meta name="description" content="競馬予想・レース回顧のれーじきゅん（REJI）のリンク集">
+<meta property="og:type" content="website">
+<meta property="og:title" content="REJI｜れーじきゅん">
+<meta property="og:description" content="競馬予想・レース回顧のリンク集">
+<meta property="og:image" content="https://reji-uma.github.io/img/og.png">
+<meta property="og:url" content="https://reji-uma.github.io/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@Tsubuyaiteku">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="img/avatar.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@500;700;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #ffffff;
+    --ink: #1b2030;
+    --sub: #626a7c;
+    --line: #e4e7ee;
+    --soft: #f5f6f9;
+    --accent: #e0a526;
+    --accent-ink: #8a5f00;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    background: var(--bg); color: var(--ink);
+    font-family: "Zen Kaku Gothic New", "Hiragino Sans", "Yu Gothic", sans-serif;
+    font-weight: 500; line-height: 1.5;
+  }
+  .wrap { max-width: 480px; margin: 0 auto; padding: 40px 16px 32px; }
+
+  /* プロフィール */
+  .profile { text-align: center; }
+  .avatar {
+    width: 96px; height: 96px; margin: 0 auto 14px; border-radius: 50%;
+    display: block; object-fit: cover; background: var(--soft);
+  }
+  .name { font-size: 22px; font-weight: 900; letter-spacing: .02em; }
+  .handle { margin-top: 2px; font-size: 13px; color: var(--sub); letter-spacing: .12em; }
+  .bio { margin-top: 10px; font-size: 14px; color: var(--sub); }
+
+  /* リンク */
+  .links { margin-top: 28px; display: grid; gap: 12px; }
+  .link {
+    display: grid; grid-template-columns: 44px 1fr 16px; align-items: center; column-gap: 14px;
+    min-height: 68px; padding: 12px 16px; border: 1px solid var(--line); border-radius: 14px;
+    color: inherit; text-decoration: none; background: var(--bg);
+    transition: background .15s, border-color .15s, transform .15s;
+  }
+  .link:hover { background: var(--soft); border-color: #d3d7e1; }
+  .link:active { transform: scale(.99); }
+  .icon {
+    width: 44px; height: 44px; border-radius: 12px; background: var(--soft);
+    display: grid; place-items: center;
+  }
+  .icon svg { width: 22px; height: 22px; display: block; stroke: var(--ink); fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+  .icon.x svg { fill: var(--ink); stroke: none; }
+  .text { min-width: 0; }
+  .title, .desc { display: block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .title { font-size: 16px; font-weight: 700; line-height: 1.35; }
+  .desc { font-size: 12.5px; color: var(--sub); line-height: 1.4; margin-top: 2px; }
+  .chev { width: 16px; height: 16px; stroke: #a3a9b6; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
+  /* 見出し */
+  .sec { margin-top: 36px; display: flex; align-items: center; gap: 10px; }
+  .sec h2 { font-size: 13px; font-weight: 900; letter-spacing: .2em; }
+  .sec::after { content: ""; flex: 1; height: 1px; background: var(--line); }
+  .sec .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); }
+
+  /* アパレル */
+  .apparel { margin-top: 14px; display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .item { color: inherit; text-decoration: none; display: block; }
+  .item .ph { aspect-ratio: 1 / 1; border-radius: 14px; background: var(--soft); overflow: hidden; display: grid; place-items: center; }
+  .item .ph img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .item .nm { margin-top: 8px; font-size: 13.5px; font-weight: 700; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .item .pr { font-size: 12.5px; color: var(--sub); }
+  .soon { margin-top: 14px; border: 1px dashed #cfd4de; border-radius: 14px; padding: 22px 16px; text-align: center; }
+  .soon b { display: block; font-size: 14px; font-weight: 900; letter-spacing: .18em; }
+  .soon span { display: block; margin-top: 4px; font-size: 12.5px; color: var(--sub); }
+
+  footer { margin-top: 40px; text-align: center; font-size: 11.5px; color: #9aa1af; letter-spacing: .08em; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="profile">
+    <img class="avatar" src="img/avatar.jpg" alt="れーじきゅん" width="96" height="96">
+    <h1 class="name">れーじきゅん</h1>
+    <p class="handle">REJI</p>
+    <p class="bio">競馬予想・レース回顧</p>
+  </header>
+
+  <nav class="links">
+    <a class="link" href="https://note.com/reji_uma" target="_blank" rel="noopener">
+      <span class="icon"><svg viewBox="0 0 24 24"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></svg></span>
+      <span class="text"><span class="title block">note</span><span class="desc block">重賞の見解と印</span></span>
+      <svg class="chev" viewBox="0 0 16 16"><path d="M6 3l5 5-5 5"/></svg>
+    </a>
+    <a class="link" href="https://x.com/Tsubuyaiteku" target="_blank" rel="noopener">
+      <span class="icon x"><svg viewBox="0 0 24 24"><path d="M17.8 3h3.1l-6.8 7.8L22 21h-6.2l-4.9-6.4L5.3 21H2.2l7.3-8.3L2 3h6.4l4.4 5.8zM16.7 19.2h1.7L7.4 4.7H5.5z"/></svg></span>
+      <span class="text"><span class="title block">X</span><span class="desc block">@Tsubuyaiteku</span></span>
+      <svg class="chev" viewBox="0 0 16 16"><path d="M6 3l5 5-5 5"/></svg>
+    </a>
+    <a class="link" href="https://umami-lab-support.github.io/" target="_blank" rel="noopener">
+      <span class="icon"><svg viewBox="0 0 24 24"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg></span>
+      <span class="text"><span class="title block">UMAMI</span><span class="desc block">けいばを、もっとたのしむ。</span></span>
+      <svg class="chev" viewBox="0 0 16 16"><path d="M6 3l5 5-5 5"/></svg>
+    </a>
+    <a class="link" href="https://note.com/umami_info/all" target="_blank" rel="noopener">
+      <span class="icon"><svg viewBox="0 0 24 24"><path d="M3 8a2 2 0 0 0 2-2h14a2 2 0 0 0 2 2v2a2 2 0 0 0 0 4v2a2 2 0 0 0-2 2H5a2 2 0 0 0-2-2v-2a2 2 0 0 0 0-4z"/><path d="M14 6v12" stroke-dasharray="2 2.4"/></svg></span>
+      <span class="text"><span class="title block">UMAMI 1日券</span><span class="desc block">土日それぞれの合い言葉</span></span>
+      <svg class="chev" viewBox="0 0 16 16"><path d="M6 3l5 5-5 5"/></svg>
+    </a>
+    <a class="link" href="https://note.com/umami_info/membership" target="_blank" rel="noopener">
+      <span class="icon"><svg viewBox="0 0 24 24"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1L3.2 9.5l6.1-.9z"/></svg></span>
+      <span class="text"><span class="title block">UMAMI メンバーシップ</span><span class="desc block">すべての開催日が見られる</span></span>
+      <svg class="chev" viewBox="0 0 16 16"><path d="M6 3l5 5-5 5"/></svg>
+    </a>
+  </nav>
+
+  <div class="sec"><span class="dot"></span><h2>APPAREL</h2></div>
+  <div id="apparel"></div>
+
+  <footer>© 2026 REJI</footer>
+</div>
+
+<script>
+  // アパレルはここに足すだけで並ぶ（空のあいだは「準備中」）
+  // 例: { name: "ロゴT ホワイト", price: "¥4,400", img: "img/tee-white.jpg", url: "https://..." }
+  const APPAREL = [];
+
+  const box = document.getElementById("apparel");
+  const esc = s => String(s).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+  if (!APPAREL.length) {
+    box.innerHTML = '<div class="soon"><b>COMING SOON</b><span>アパレルは準備中です</span></div>';
+  } else {
+    box.className = "apparel";
+    box.innerHTML = APPAREL.map(a =>
+      `<a class="item" href="${esc(a.url)}" target="_blank" rel="noopener">
+         <div class="ph">${a.img ? `<img src="${esc(a.img)}" alt="${esc(a.name)}" loading="lazy">` : ""}</div>
+         <div class="nm">${esc(a.name)}</div><div class="pr">${esc(a.price || "")}</div>
+       </a>`).join("");
+  }
+</script>
+</body>
+</html>
