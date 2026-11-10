@@ -1,0 +1,170 @@
+
+:root{
+  --bg:#FAF6EE; --paper:#FFFDF8; --ink:#141210; --sub:#5C5650; --faint:#9A938A; --line:#141210; --hair:#DCD2C2;
+  --red:#C8161D; --red-d:#7E0B12; --gold:#B8862B; --gold-l:#F3D98B; --black:#0F0D0C; --quote:#F4F0E8;
+  --gold-grad:linear-gradient(180deg,#FFF3C9 0%,#EBC66B 40%,#B8862B 62%,#F2D488 100%);
+  --disp:"Dela Gothic One",sans-serif;
+  --d1:28px; --d2:20px; --d3:16px; --d4:12px;
+  --body:"Noto Sans JP",system-ui,sans-serif;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .35 0 0 0 0 .25 0 0 0 0 .15 0 0 0 .07 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");color:var(--ink);font:15px/1.8 var(--body);line-break:strict;overflow-wrap:break-word}
+.ph{word-break:keep-all;overflow-wrap:anywhere}
+.num{font-variant-numeric:tabular-nums}
+.wrap{max-width:720px;margin:0 auto;padding:0 0 0;background:transparent}
+.d1,.d2,.d3,.d4{font-family:var(--disp);font-weight:400;line-height:1.25;letter-spacing:.02em}
+.d1{font-size:var(--d1)} .d2{font-size:var(--d2)} .d3{font-size:var(--d3)} .d4{font-size:var(--d4)}
+.meta{font-size:12px;color:var(--sub)}
+.gold{background:var(--gold-grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+
+/* 看板 */
+.hero{position:relative;overflow:hidden;background:var(--black);color:#fff;min-height:236px;border-bottom:3px solid var(--gold);display:flex;flex-direction:column;justify-content:center}
+.hero-art{position:absolute;inset:0;width:100%;height:100%}
+.hero-in{position:relative;padding:22px 22px 30px}
+.kick{display:flex;align-items:center;gap:10px;color:var(--red)}
+.kick i{display:block;width:26px;height:1px;background:var(--gold)}
+.hero h1{margin:10px 0 0;font-family:var(--disp);font-weight:400;font-size:46px;line-height:1.1;letter-spacing:.04em;filter:drop-shadow(0 2px 0 #3a2a08) drop-shadow(0 6px 14px rgba(0,0,0,.6))}
+.hero .tagline{margin-top:14px;display:flex;align-items:center;gap:10px;font-size:12px;letter-spacing:.3em;color:var(--gold-l)}
+.hero .tagline i{flex:1;height:1px;background:linear-gradient(90deg,var(--gold),transparent);max-width:120px}
+.hero .upd{position:absolute;right:22px;bottom:18px;font-size:12px;color:#CFC6B8}
+.framed::after{content:"";position:absolute;inset:9px;border:1px solid rgba(233,196,106,.75);pointer-events:none;
+  background:linear-gradient(#E9C46A,#E9C46A) 0 0/18px 2px,linear-gradient(#E9C46A,#E9C46A) 0 0/2px 18px,
+  linear-gradient(#E9C46A,#E9C46A) 100% 0/18px 2px,linear-gradient(#E9C46A,#E9C46A) 100% 0/2px 18px,
+  linear-gradient(#E9C46A,#E9C46A) 0 100%/18px 2px,linear-gradient(#E9C46A,#E9C46A) 0 100%/2px 18px,
+  linear-gradient(#E9C46A,#E9C46A) 100% 100%/18px 2px,linear-gradient(#E9C46A,#E9C46A) 100% 100%/2px 18px;background-repeat:no-repeat}
+
+/* 帯の見出し */
+.band{position:relative;margin:30px 0 0;padding:9px 16px;background:linear-gradient(100deg,var(--red-d) 0%,var(--red) 55%,#9E0F17 100%);color:#fff;display:flex;align-items:baseline;gap:10px;
+  box-shadow:inset 0 2px 0 var(--gold),inset 0 -2px 0 var(--gold)}
+.band .bn{color:var(--gold-l);letter-spacing:.08em}
+.band small{margin-left:auto;font:500 12px/1 var(--body);letter-spacing:0;opacity:.9}
+.sec{padding:0 16px}
+
+/* 今週の出走 */
+.none{padding:14px 0 12px;border-bottom:1px solid var(--hair);display:flex;justify-content:space-between;align-items:center;gap:10px}
+.none button{flex:none;border:1px solid var(--ink);background:var(--paper);color:var(--ink);padding:5px 14px;font:700 12px/1.4 var(--body);cursor:pointer;box-shadow:2px 2px 0 var(--gold)}
+.race-h{margin-top:14px;padding:10px 12px;background:var(--black);border-top:2px solid var(--gold);border-bottom:2px solid var(--gold);display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.race-h .meta{color:#CFC6B8}
+.race-h .g{color:var(--black);background:var(--gold-grad);padding:3px 6px}
+.stamp{margin-left:auto;color:var(--gold-l);border:2px solid var(--gold);padding:3px 6px;transform:rotate(-4deg)}
+.ent{display:grid;grid-template-columns:28px 1fr;gap:0 10px;padding:14px 0;border-bottom:1px solid var(--hair)}
+.ent .no{width:28px;height:28px;display:grid;place-items:center;background:var(--black);color:var(--gold-l);box-shadow:inset 0 0 0 1px var(--gold)}
+.ent .nm{display:flex;align-items:center;gap:8px;flex-wrap:wrap;min-height:28px}
+.hit{color:#fff;background:var(--red);padding:3px 6px;box-shadow:inset 0 0 0 1px var(--gold-l)}
+.ent .ex{grid-column:2;margin-top:6px;background:var(--quote);border-left:3px solid var(--red);padding:8px 12px;font-size:14px;line-height:1.75}
+.ent .ex summary{list-style:none;cursor:pointer}
+.ent .ex summary::-webkit-details-marker{display:none}
+.ent .ex .more{color:var(--red);font-weight:700;font-size:12px;white-space:nowrap}
+.ent .ex[open] summary{display:none}
+.ent .ex p{margin:0 0 4px}
+
+/* 回顧 */
+.kai{position:relative;padding:22px 0 26px}
+.kai+.kai::before{content:"";position:absolute;left:0;right:0;top:0;height:7px;
+  background:linear-gradient(var(--gold),var(--gold)) 0 0/100% 1px no-repeat,linear-gradient(var(--line),var(--line)) 0 3px/100% 2px no-repeat}
+.kai .rl{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap}
+.kai .rl .d3{color:var(--red)}
+.kai .hn{margin:4px 0 2px;white-space:nowrap;text-shadow:3px 3px 0 rgba(200,22,29,.16)}
+.kai .pf{word-break:keep-all;overflow-wrap:anywhere}
+.kai .pf i{font-style:normal;white-space:nowrap}
+.col{display:grid;grid-template-columns:repeat(5,1fr);margin-top:12px;border-top:2px solid var(--line);border-bottom:2px solid var(--line);background:var(--paper);box-shadow:0 3px 0 -1px var(--gold)}
+.col div{padding:5px 2px 4px;text-align:center;border-left:1px solid var(--hair)}
+.col div:first-child{border-left:0;background:var(--black)}
+.col div:first-child small{color:#CFC6B8}
+.col div:first-child .d2{background:var(--gold-grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.col small{display:block;font-size:11px;color:var(--sub);line-height:1.3}
+.qt{position:relative;margin-top:14px;background:var(--paper);border:1px solid var(--hair);border-left:4px solid var(--red);padding:18px 16px 14px;font-size:15px;line-height:1.95;box-shadow:0 6px 18px -12px rgba(60,40,10,.45)}
+.qt::before{content:"\300C";position:absolute;left:8px;top:-14px;font:400 40px/1 var(--disp);color:var(--red);opacity:.9}
+.qt p{margin:0 0 8px}
+.qt p:last-child{margin:0}
+.qt .dt{display:block;text-align:right;font-size:11px;color:var(--faint);margin-top:4px}
+.ln{display:flex;gap:6px 16px;flex-wrap:wrap;align-items:baseline;margin-top:12px;font-size:13px}
+.ln span{white-space:nowrap}
+.ln .d4{color:var(--red);margin-right:6px}
+
+/* 若駒カルテ */
+.karte{margin-top:14px;border:1px solid var(--gold);outline:3px solid var(--black);outline-offset:3px;margin-left:6px;margin-right:6px;background:var(--paper)}
+.karte .kh{padding:12px 12px 10px;background:var(--black);border-bottom:2px solid var(--gold)}
+.karte .kh .d1{background:var(--gold-grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.karte .kh .meta{color:#CFC6B8}
+.karte table{width:100%;border-collapse:collapse;font-size:13px}
+.karte th{width:5.5em;text-align:left;font-weight:700;font-size:12px;color:var(--sub);padding:8px 0 8px 12px;vertical-align:top;border-bottom:1px solid var(--hair)}
+.karte td{padding:8px 12px 8px 0;border-bottom:1px solid var(--hair)}
+.karte tr:last-child th,.karte tr:last-child td{border-bottom:0}
+.karte .nw{white-space:nowrap}
+.karte .d3{color:var(--red)}
+.karte .blank{color:var(--faint)}
+
+
+/* 名馬ものさし */
+.ms{position:relative;padding:18px 0 24px}
+.ms+.ms::before{content:"";position:absolute;left:0;right:0;top:0;height:7px;
+  background:linear-gradient(var(--gold),var(--gold)) 0 0/100% 1px no-repeat,linear-gradient(var(--line),var(--line)) 0 3px/100% 2px no-repeat}
+.ms .race-h{margin-top:0}
+.ms .who{margin-top:12px;display:flex;align-items:baseline;gap:8px;flex-wrap:wrap}
+.ms .col{grid-template-columns:repeat(3,1fr)}
+.ms .col div:first-child{background:var(--paper)}
+.ms .col div:first-child small{color:var(--sub)}
+.ms .col div:first-child .d2{background:none;-webkit-background-clip:border-box;background-clip:border-box;color:var(--ink)}
+.rule{margin-top:14px;background:var(--paper);border:1px solid var(--hair);border-left:4px solid var(--gold);padding:12px 14px 14px}
+.rule .cond{font-size:13px;color:var(--sub);line-height:1.7}
+.rule .res{margin-top:10px;display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.rule .res .d2{color:var(--red)}
+.rule .zero{display:inline-block;padding:4px 10px;background:var(--black);border:1px solid var(--gold)}
+.chips{margin-top:8px;line-height:2.1}
+.chip{display:inline-block;margin:0 4px 0 0;padding:1px 8px;border:1px solid var(--gold);background:#fff;font-size:13px;line-height:1.7;white-space:nowrap}
+.chip .y{font-size:11px;color:var(--faint);margin-left:4px}
+.chip .g1{font-family:var(--disp);font-size:11px;color:var(--gold);margin-left:4px}
+.chip .ms-miss{font-size:11px;color:var(--sub);margin-left:4px}
+.chip.me{background:var(--red);border-color:var(--red);color:#fff}
+.chip.me .y{color:#fff;opacity:.8}
+.sub-h{margin-top:12px;font-size:12px;color:var(--sub)}
+.ms .ln{margin-top:12px}
+/* 締め */
+.foot{margin-top:40px;padding:22px 16px 30px;background:var(--black);border-top:3px solid var(--gold);display:flex;align-items:baseline;gap:10px}
+.foot .meta{color:#CFC6B8}
+
+/* ---- ページを分けたときの共通の部品 ---- */
+/* 細い看板（トップ以外） */
+.bar-top{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:12px 16px;background:var(--black);border-bottom:2px solid var(--gold)}
+.bar-top a{text-decoration:none}
+.bar-top .r{color:var(--red);margin-right:.3em}
+.bar-top .upd{font-size:12px;color:#CFC6B8}
+
+/* 切り替え（4つ） */
+.nav{position:sticky;top:0;z-index:20;display:grid;grid-template-columns:repeat(4,1fr);background:var(--paper);border-bottom:1px solid var(--gold);box-shadow:0 2px 0 rgba(20,18,16,.06)}
+.nav a{display:flex;align-items:center;justify-content:center;min-height:46px;color:var(--ink);text-decoration:none;border-bottom:3px solid transparent}
+.nav a.on{color:var(--red);border-bottom-color:var(--red)}
+
+/* 一覧の1行 */
+.rows{margin-top:6px}
+.row{display:grid;grid-template-columns:1fr 14px;align-items:center;gap:8px;padding:12px 0;border-bottom:1px solid var(--hair);color:var(--ink);text-decoration:none}
+.row .top{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap}
+.row .top .d4{color:var(--red)}
+.row .t{margin-top:2px}
+.row .s{margin-top:2px;font-size:13px;color:var(--sub);word-break:keep-all;overflow-wrap:anywhere}
+.row .s b{color:var(--red);font-weight:700}
+.row .go{width:9px;height:9px;border-top:2px solid var(--gold);border-right:2px solid var(--gold);transform:rotate(45deg)}
+.more-link{display:inline-block;margin-top:10px;padding:6px 14px;border:1px solid var(--ink);background:var(--paper);color:var(--ink);font:700 12px/1.4 var(--body);text-decoration:none;box-shadow:2px 2px 0 var(--gold)}
+
+/* 週の見出し */
+.wk{margin-top:18px;padding-bottom:4px;border-bottom:2px solid var(--line);display:flex;align-items:baseline;gap:8px}
+.wk .meta{margin-left:auto}
+
+/* 馬のページ */
+.hp{padding:20px 0 4px}
+.hp .hn{margin:2px 0 4px}
+.hp .ln{margin-top:10px}
+.back{display:inline-block;margin:14px 0 0;font-size:12px;color:var(--sub);text-decoration:none}
+.back::before{content:"";display:inline-block;width:7px;height:7px;border-left:2px solid var(--sub);border-bottom:2px solid var(--sub);transform:rotate(45deg);margin-right:6px;vertical-align:1px}
+.hist{width:100%;border-collapse:collapse;margin-top:10px;font-size:13px;background:var(--paper)}
+.hist th{font-size:11px;font-weight:400;color:var(--sub);text-align:right;padding:6px 6px;border-bottom:2px solid var(--line)}
+.hist th:nth-child(2){text-align:left}
+.hist td{padding:7px 6px;border-bottom:1px solid var(--hair);text-align:right;white-space:nowrap}
+.hist td.n{text-align:left;white-space:normal;word-break:keep-all;overflow-wrap:anywhere}
+.hist tr.me td{background:#FFF6E3;font-weight:700}
+.link-h{color:inherit;text-decoration:none;border-bottom:1px solid var(--gold)}
+.foot .note{margin-left:auto;font-size:11px;color:#8F877C}
+
+.sec .band{margin-left:-16px;margin-right:-16px}
