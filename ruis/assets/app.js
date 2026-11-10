@@ -124,28 +124,37 @@ const wkLabel = list => {
 };
 
 // ---- ページごと ----
-if (PAGE === "top") {
+const E = window.EMB || {}, S = window.SVC || {};
+const strip = (key, url) => `<a class="strip s-${key}" href="${url}">${E[key] || ""}${(S[key] || [""])[0]}</a>`;
+const xsh = (key, small) => `<h2 class="sh x-${key}">${E[key] || ""}<span class="d3">${(S[key] || [""])[0]}</span><small>${small || ""}</small></h2>`;
+const sh = (no, text, small) => `<h2 class="sh"><span class="no">${no}</span><span class="d3">${text}</span><small>${small || ""}</small></h2>`;
+// 名馬ものさしの「今週の注目」= 当てはまる馬が一番少ない走り（0頭が最優先、同じなら格の上・新しい方）
+const featured = () => M.items.slice().sort((a, b) => a.list.length - b.list.length)[0];
+
+if (PAGE === "home") {
+  const running = D.items.filter(k => k.nxt), latest = D.items.slice().sort(byNew)[0];
+  set("tz-kaiko", `<div><span class="k">今週の出走</span>${running.length ? `<b>${running.length}頭</b>` : "該当馬なし"}</div>` +
+    (latest ? `<div><span class="k">新着</span><b>${esc(latest.horse)}</b>（${esc(latest.label)}）</div>` : ""));
+  const f = featured();
+  set("tz-ms", f ? `<div><span class="k">${esc(f.race)}</span><b>${esc(f.winner)}</b></div><div class="meta num">${f.list.length ? `${f.base_n}頭中${f.list.length}頭` : `該当なし・${f.base_n}頭で初めて`}</div>` : "");
+  const y = D.items.filter(k => k.prof.age === 2).sort(byNew)[0];
+  set("tz-karte", y ? `<div><span class="k">新着</span><b>${esc(y.horse)}</b></div><div class="num">${esc(y.race.name)} ${y.race.fin}着・${y.race.fin === 1 ? "2着と" : "勝ち馬と"}${y.race.diff.toFixed(1)}秒差</div>` : "まだありません");
+}
+if (PAGE === "kai-list") {
   week($("week"));
-  const recent = weeks(M.items).slice(0, 2).flatMap(w => w[1]);       // 直近2週・並びはデータどおり（GIが先）
-  const order = new Map(M.items.map((m, i) => [m.rc, i]));
-  recent.sort((a, b) => order.get(a.rc) - order.get(b.rc));
-  set("ms-top", recent.length ? `<div class="rows">${recent.map(msRow).join("")}</div><a class="more-link" href="${R}monosashi/">名馬ものさしの一覧</a>` : "");
-  set("kai-top", `<div class="rows">${D.items.slice().sort(byNew).slice(0, 3).map(kaiRow).join("")}</div><a class="more-link" href="${R}kaiko/">回顧の一覧</a>`);
-  const young = D.items.filter(k => k.prof.age === 2);
-  set("karte-top", young.length ? `<div class="rows">${young.map(kaiRow).join("")}</div><a class="more-link" href="${R}karte/">若駒カルテ</a>` : `<p class="meta">2歳の回顧が入ると並びます。</p>`);
+  set("list", `<div class="rows">${D.items.slice().sort(byNew).map(kaiRow).join("")}</div>`);
 }
 if (PAGE === "ms-list") {
+  const f = featured();
+  set("feature", f ? msCard(f) : "");
   set("list", weeks(M.items).map(([, list]) => `<div class="wk"><span class="d3">${wkLabel(list)}の重賞</span><span class="meta">${list.length}レース</span></div><div class="rows">${list.map(msRow).join("")}</div>`).join(""));
 }
 if (PAGE === "ms-race") {
   const m = M.items.find(x => x.rc === ID);
-  set("main", m ? msCard(m) + `<a class="back" href="${R}monosashi/">名馬ものさしの一覧へ</a>` : `<p class="meta">見つかりません</p>`);
-}
-if (PAGE === "kai-list") {
-  set("list", `<div class="rows">${D.items.slice().sort(byNew).map(kaiRow).join("")}</div>`);
+  set("main", strip("ms", `${R}monosashi/`) + (m ? msCard(m) : `<p class="meta">見つかりません</p>`) + `<a class="back" href="${R}monosashi/">名馬ものさしの一覧へ</a>`);
 }
 if (PAGE === "karte-list") {
-  const young = D.items.filter(k => k.prof.age === 2);
+  const young = D.items.filter(k => k.prof.age === 2).sort(byNew);
   set("list", young.length ? young.map(k => karteCard(k, true)).join("") : `<p class="meta">2歳の回顧が入ると並びます。</p>`);
 }
 if (PAGE === "horse") {
@@ -158,15 +167,14 @@ if (PAGE === "horse") {
   const mss = M.items.filter(m => m.hid === ID);
   const hist = k.recent.slice().reverse().map(x => `<tr class="${ks.some(y => y.race.date === x.date) ? "me" : ""}"><td class="num">${x.date.slice(2,4)}/${md(x.date)}</td>
       <td class="n">${esc(x.name)} ${x.grade}</td><td class="num">${x.place}${x.surf}${x.dist}</td><td class="num">${x.pop ? x.pop + "人" : ""}</td><td class="num">${x.fin ? x.fin + "着" : "-"}</td></tr>`).join("");
-  document.title = `${k.horse}｜ruis 回顧ノート`;
-  set("main", `<div class="hp kai"><div class="hn d1">${esc(k.horse)}</div><div class="pf meta num">${pf}</div>
+  set("main", strip("kaiko", `${R}kaiko/`) +
+    `<div class="hp kai"><div class="hn d1">${esc(k.horse)}</div><div class="pf meta num">${pf}</div>
       <div class="ln">${tags.length ? `<span><span class="d4">狙い</span>${tags.map(esc).join("・")}</span>` : ""}
-        <span><span class="d4">次走</span>${k.nxt ? `${md(k.nxt.date)} ${esc(k.nxt.place)}${k.nxt.R}R ${esc(k.nxt.name)}` : "未定（出馬表が出たら表示）"}</span></div></div>
-    <h2 class="band d2"><span class="bn d4">01</span>回顧<small>${ks.length}本</small></h2>${ks.map(x => kaiCard(x, false)).join("")}
-    ${mss.length ? `<h2 class="band d2"><span class="bn d4">02</span>名馬ものさし</h2>${mss.map(msCard).join("")}` : ""}
-    <h2 class="band d2"><span class="bn d4">${mss.length ? "03" : "02"}</span>近5走</h2>
-    <table class="hist"><thead><tr><th>日付</th><th>レース</th><th>コース</th><th>人気</th><th>着順</th></tr></thead><tbody>${hist}</tbody></table>
-    ${p.age === 2 ? `<h2 class="band d2"><span class="bn d4">${mss.length ? "04" : "03"}</span>若駒カルテ</h2>${karteCard(k, false)}` : ""}
-    <a class="back" href="${R}kaiko/">回顧の一覧へ</a>`);
+        <span><span class="d4">次走</span>${k.nxt ? `${md(k.nxt.date)} ${esc(k.nxt.place)}${k.nxt.R}R ${esc(k.nxt.name)}` : "未定（出馬表が出たら表示）"}</span></div></div>` +
+    sh("01", "回顧", `${ks.length}本`) + ks.map(x => kaiCard(x, false)).join("") +
+    sh("02", "近5走") + `<table class="hist"><thead><tr><th>日付</th><th>レース</th><th>コース</th><th>人気</th><th>着順</th></tr></thead><tbody>${hist}</tbody></table>` +
+    (mss.length ? xsh("ms", "この馬の勝ち") + mss.map(msCard).join("") : "") +
+    (p.age === 2 ? xsh("karte", "2歳") + karteCard(k, false) : "") +
+    `<a class="back" href="${R}kaiko/">回顧ノートの一覧へ</a>`);
 }
 })();

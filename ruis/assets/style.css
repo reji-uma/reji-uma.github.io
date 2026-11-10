@@ -168,3 +168,91 @@ body{margin:0;background:var(--bg) url("data:image/svg+xml,%3Csvg xmlns='http://
 .foot .note{margin-left:auto;font-size:11px;color:#8F877C}
 
 .sec .band{margin-left:-16px;margin-right:-16px}
+
+/* ---- サービスごとの顔 ---- */
+/* 印（アイコン）は web/emblems で作る。大きさは使う場所で決める */
+.emb{display:block;flex:none}
+
+/* 上の切り替え（ホーム＋3サービス） */
+.nav{grid-template-columns:repeat(4,1fr)}
+.nav a{flex-direction:column;gap:3px;min-height:58px;padding:6px 2px 4px;font-size:11px;letter-spacing:0;line-height:1.2;text-align:center}
+.nav a .emb{width:22px;height:22px}
+.nav a.on{color:var(--ink)}
+.nav a.on.s-kaiko{border-bottom-color:var(--red)}
+.nav a.on.s-ms{border-bottom-color:var(--gold)}
+.nav a.on.s-karte{border-bottom-color:#2F3A4A}
+.nav a.on.s-home{border-bottom-color:var(--ink)}
+
+/* サービスの看板 */
+.svc-hero{position:relative;overflow:hidden;display:flex;align-items:center;gap:14px;padding:22px 16px 20px;min-height:132px}
+.svc-hero .emb{width:58px;height:58px}
+.svc-hero .nm{margin:0}
+.svc-hero .tg{margin-top:4px;font-size:12px;letter-spacing:.04em}
+.svc-hero .st{margin-top:6px;font-size:12px}
+/* 回顧ノート: 紙に赤 */
+.s-kaiko.svc-hero{background:var(--paper);border-top:6px solid var(--red);border-bottom:2px solid var(--line)}
+.s-kaiko.svc-hero::after{content:"\300C";position:absolute;right:-6px;top:-18px;font:400 150px/1 var(--disp);color:var(--red);opacity:.07}
+.s-kaiko.svc-hero .nm{color:var(--red)}
+.s-kaiko.svc-hero .tg,.s-kaiko.svc-hero .st{color:var(--sub)}
+/* 名馬ものさし: 黒に金・下にものさしの目盛り */
+.s-ms.svc-hero{background:var(--black);border-bottom:2px solid var(--gold);padding-bottom:30px}
+.s-ms.svc-hero::after{content:"";position:absolute;left:0;right:0;bottom:0;height:16px;
+  background:repeating-linear-gradient(90deg,var(--gold) 0 1px,transparent 1px 10px) 0 100%/100% 7px no-repeat,
+             repeating-linear-gradient(90deg,var(--gold-l) 0 1.5px,transparent 1.5px 50px) 0 100%/100% 14px no-repeat;opacity:.85}
+.s-ms.svc-hero .nm{background:var(--gold-grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.s-ms.svc-hero .tg{color:var(--gold-l)}
+.s-ms.svc-hero .st{color:#CFC6B8}
+/* 若駒カルテ: 方眼紙に墨と赤い判子 */
+.s-karte.svc-hero{background:#FBFAF6;background-image:linear-gradient(#E6E1D6 1px,transparent 1px),linear-gradient(90deg,#E6E1D6 1px,transparent 1px);background-size:14px 14px;border-top:6px solid #2F3A4A;border-bottom:2px solid var(--line)}
+.s-karte.svc-hero .nm{color:#2F3A4A}
+.s-karte.svc-hero .tg,.s-karte.svc-hero .st{color:var(--sub)}
+.hanko{position:absolute;right:16px;top:16px;width:52px;height:52px;border:2.5px solid var(--red);border-radius:50%;display:grid;place-items:center;color:var(--red);transform:rotate(-12deg);opacity:.9}
+
+/* サービスの中の小見出し（帯より軽い・サービスの色） */
+.sh{display:flex;align-items:baseline;gap:8px;margin:26px 0 0;padding:0 0 6px;border-bottom:2px solid var(--line)}
+.sh .no{font-family:var(--disp);font-size:12px}
+.sh small{margin-left:auto;font-size:12px;color:var(--sub)}
+.s-kaiko .sh .no,.p-kaiko .sh .no{color:var(--red)}
+.p-ms .sh .no{color:var(--gold)}
+.p-karte .sh .no{color:#2F3A4A}
+
+/* ホーム: 3つのサービスの札 */
+.svc-cards{display:grid;gap:14px;margin-top:18px}
+.svc-card{display:block;position:relative;overflow:hidden;text-decoration:none;color:var(--ink);border:1px solid var(--line)}
+.svc-card .hd{display:flex;align-items:center;gap:12px;padding:16px 16px 12px}
+.svc-card .hd .emb{width:46px;height:46px}
+.svc-card .tg{font-size:12px;color:var(--sub);margin-top:2px}
+.svc-card .tz{margin:0 16px 14px;padding:10px 12px;font-size:13px;line-height:1.7}
+.svc-card .tz .k{font-family:var(--disp);font-size:12px;margin-right:6px}
+.svc-card .tz b{font-weight:700}
+.svc-card .open{display:flex;justify-content:flex-end;align-items:center;gap:8px;padding:0 16px 14px;font:700 12px/1 var(--body)}
+.svc-card .open i{width:8px;height:8px;border-top:2px solid currentColor;border-right:2px solid currentColor;transform:rotate(45deg)}
+.svc-card.s-kaiko{background:var(--paper);border-top:6px solid var(--red)}
+.svc-card.s-kaiko .d1{color:var(--red)}
+.svc-card.s-kaiko .tz{background:var(--quote);border-left:3px solid var(--red)}
+.svc-card.s-kaiko .tz .k,.svc-card.s-kaiko .open{color:var(--red)}
+.svc-card.s-ms{background:var(--black);border-color:var(--gold);color:#F4EFE6}
+.svc-card.s-ms .d1{background:var(--gold-grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.svc-card.s-ms .tg{color:var(--gold-l)}
+.svc-card.s-ms .tz{background:#1C1916;border:1px solid #3A332A}
+.svc-card.s-ms .tz .k,.svc-card.s-ms .open{color:var(--gold-l)}
+.svc-card.s-ms .tz .meta{color:#CFC6B8}
+.svc-card.s-karte{background:#FBFAF6;background-image:linear-gradient(#ECE7DC 1px,transparent 1px),linear-gradient(90deg,#ECE7DC 1px,transparent 1px);background-size:14px 14px;border-top:6px solid #2F3A4A}
+.svc-card.s-karte .d1{color:#2F3A4A}
+.svc-card.s-karte .tz{background:#fff;border:1px solid var(--hair)}
+.svc-card.s-karte .tz .k,.svc-card.s-karte .open{color:#2F3A4A}
+.svc-card .hanko{width:44px;height:44px;top:14px;right:14px;font-size:11px}
+
+/* ホームの看板は ruis の名前 */
+.home .hero h1{font-size:56px;letter-spacing:.06em}
+.home .hero .svcs{margin-top:12px;display:flex;gap:6px;flex-wrap:wrap}
+.home .hero .svcs span{font-size:11px;color:var(--gold-l);border:1px solid rgba(233,196,106,.55);padding:2px 8px;letter-spacing:.06em}
+
+/* サービスの名札（レースや馬のページの上） */
+.strip{display:flex;align-items:center;gap:8px;margin:16px 0 0;font:400 15px/1 var(--disp);text-decoration:none;color:var(--ink)}
+.strip .emb{width:26px;height:26px}
+.strip.s-kaiko{color:var(--red)} .strip.s-ms{color:#8C6414} .strip.s-karte{color:#2F3A4A}
+/* 別のサービスから来た欄の見出し（印つき） */
+.sh .emb{width:22px;height:22px;align-self:center}
+.sh.x-ms .d3{color:#8C6414} .sh.x-karte .d3{color:#2F3A4A}
+.svc-card .tz>div+div{margin-top:2px}
