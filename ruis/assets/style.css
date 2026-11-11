@@ -256,3 +256,64 @@ body{margin:0;background:var(--bg) url("data:image/svg+xml,%3Csvg xmlns='http://
 .sh .emb{width:22px;height:22px;align-self:center}
 .sh.x-ms .d3{color:#8C6414} .sh.x-karte .d3{color:#2F3A4A}
 .svc-card .tz>div+div{margin-top:2px}
+
+/* ホームの目次（3つのサービスへ） */
+.toc-h{display:flex;align-items:center;gap:14px;margin:30px 0 0;font:600 13px/1 var(--body);letter-spacing:.4em;color:var(--gold)}
+.toc-h::before,.toc-h::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,transparent,var(--gold))}
+.toc-h::after{background:linear-gradient(90deg,var(--gold),transparent)}
+.toc-h span{padding-left:.4em}
+.toc{margin:14px 0 6px;border-top:1px solid var(--gold);border-bottom:1px solid var(--gold)}
+.toc-i{display:grid;grid-template-columns:34px 40px 1fr 12px;align-items:center;gap:12px;padding:20px 4px;color:var(--ink);text-decoration:none}
+.toc-i+.toc-i{border-top:1px solid var(--hair)}
+.toc-i .no{display:grid;place-items:center;width:34px;height:34px;background:var(--black);color:var(--gold-l);font:600 15px/1 var(--logo,var(--disp));box-shadow:inset 0 0 0 1px var(--gold)}
+.toc-i .emb{width:40px;height:40px}
+.toc-i .tx{min-width:0}
+.toc-i .d1{display:block;font-size:24px;line-height:1.3}
+.toc-i .tg{display:block;margin-top:4px;font-size:12px;color:var(--sub);word-break:keep-all;overflow-wrap:anywhere}
+.toc-i .go{width:10px;height:10px;border-top:2px solid var(--gold);border-right:2px solid var(--gold);transform:rotate(45deg)}
+.toc-i.s-kaiko .d1{color:var(--red)}
+.toc-i.s-ms .d1{color:#8C6414}
+.toc-i.s-karte .d1{color:#2F3A4A}
+.toc-i:active{background:rgba(184,134,43,.08)}
+
+/* ---- 高級感の調整（書体の案A・Bで共通）: 線を細く、影と傾きをやめ、字間を広げる ---- */
+/* 仮名の字詰め（palt）で馬名がばらけないように。小さい札と切り替えは本文の太字で読みやすく */
+.d1,.d2,.d3{letter-spacing:.04em;font-feature-settings:"palt"}
+.d4,.nav a{font-family:var(--body)!important;font-weight:700!important;letter-spacing:.04em}
+.nav a{font-weight:500!important}
+.kai .hn{text-shadow:none}
+.none button,.more-link{box-shadow:none;border-color:var(--gold)}
+.stamp{transform:none;border-width:1px}
+.col{border-top:1px solid var(--line);border-bottom:1px solid var(--line);box-shadow:0 3px 0 -2px var(--gold)}
+.wk,.sh{border-bottom-width:1px}
+.kai+.kai::before,.ms+.ms::before{height:4px;background:linear-gradient(var(--gold),var(--gold)) 0 0/100% 1px no-repeat,linear-gradient(var(--line),var(--line)) 0 3px/100% 1px no-repeat}
+.s-kaiko.svc-hero,.svc-card.s-kaiko{border-top-width:3px}
+.s-karte.svc-hero,.svc-card.s-karte{border-top-width:3px}
+.race-h{border-top-width:1px;border-bottom-width:1px}
+.hist th{border-bottom-width:1px}
+.hero{border-bottom-width:2px}
+.foot{border-top-width:2px}
+/* GF: family=Noto+Serif+JP:wght@700;900&family=Cormorant+Garamond:wght@600 */
+/* 案A 源ノ明朝: Noto Serif JP ＋ ロゴ Cormorant Garamond */
+:root{--disp:"Noto Serif JP",serif;--logo:"Cormorant Garamond","Noto Serif JP",serif}
+.d1,.d2,.d3{font-weight:700;letter-spacing:.04em}
+.d1,.hero h1{font-weight:900}
+.qt::before,.s-kaiko.svc-hero::after,.strip{font-weight:700}
+.hero h1.logo,.home .hero h1{font:normal 600 64px/1 var(--logo);letter-spacing:.12em}
+.bar-top a.d2,.foot .d2{font:normal 600 24px/1 var(--logo);letter-spacing:.12em}
+/* 3 赤漆: 黒い面を深紅の漆に。金はそのまま、上に艶の光 */
+:root{--black:#3A060B;--lacq:linear-gradient(160deg,#2A0407 0%,#62090F 48%,#3A060B 72%,#1E0306 100%)}
+.bar-top,.foot,.race-h,.karte .kh,.svc-card.s-ms,.s-ms.svc-hero,.svc-card.s-ms .tz{background:var(--lacq)}
+.svc-card.s-ms .tz{background:rgba(0,0,0,.28);border-color:rgba(233,196,106,.35)}
+.race-h,.bar-top,.svc-card.s-ms,.s-ms.svc-hero{position:relative}
+.race-h::after,.bar-top::after{content:"";position:absolute;inset:0;background:linear-gradient(175deg,rgba(255,255,255,.14) 0%,rgba(255,255,255,0) 38%);pointer-events:none}
+.svc-card.s-ms::after{content:"";position:absolute;inset:0;background:linear-gradient(170deg,rgba(255,255,255,.12) 0%,rgba(255,255,255,0) 30%);pointer-events:none}
+.hero{background:radial-gradient(120% 120% at 80% 0%,#8E1219 0%,#4A070C 45%,#1E0306 100%)}
+.hero-art{mix-blend-mode:screen}
+.col div:first-child{background:var(--lacq)}
+.ent .no{background:#3A060B}
+.nav{border-bottom:2px solid var(--gold)}
+.nav a.on.s-ms{border-bottom-color:#7E0B12}
+.s-ms.svc-hero .st{color:#E6CFC4}
+.svc-card.s-ms .tz .meta{color:#E6CFC4}
+.toc-i .no{background:var(--lacq)}
