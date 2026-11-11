@@ -275,6 +275,7 @@ body{margin:0;background:var(--bg) url("data:image/svg+xml,%3Csvg xmlns='http://
 .toc-i.s-ms .d1{color:#8C6414}
 .toc-i.s-karte .d1{color:#2F3A4A}
 .toc-i:active{background:rgba(184,134,43,.08)}
+.toc-i .no{font-variant-numeric:lining-nums tabular-nums}
 
 /* ---- 高級感の調整（書体の案A・Bで共通）: 線を細く、影と傾きをやめ、字間を広げる ---- */
 /* 仮名の字詰め（palt）で馬名がばらけないように。小さい札と切り替えは本文の太字で読みやすく */
